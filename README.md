@@ -11,7 +11,7 @@ PRs welcome.
 ## Install
 
 ```sh
-npm install audiobuffer-to-wav --save
+npm install cyclonstep/audiobuffer-to-wav --save
 ```
 
 ## Example
