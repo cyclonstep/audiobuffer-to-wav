@@ -51,7 +51,7 @@ Encodes the [AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/Audio
 
 By default, exports with 16-bit PCM (format: 1). You can specify `opt.float32` instead, which will write format 3 with 32-bit float data.
 
-You can also put your sampleRate in the [opt] for executing resampling for mono audio.
+You can also put your specified sampleRate in the [opt] to execute the resampling for mono audio.
 
 ## License
 
