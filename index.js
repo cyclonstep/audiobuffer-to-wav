@@ -3,7 +3,7 @@ function audioBufferToWav (buffer, opt) {
   opt = opt || {}
 
   var numChannels = buffer.numberOfChannels
-  var sampleRate = buffer.sampleRate
+  var sampleRate = opt.sampleRate ? opt.sampleRate : buffer.sampleRate
   var format = opt.float32 ? 3 : 1
   var bitDepth = format === 3 ? 32 : 16
 
