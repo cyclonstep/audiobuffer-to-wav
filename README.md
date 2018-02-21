@@ -2,7 +2,7 @@
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
-Encodes the contents of an [AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer) from the WebAudio API as WAVE. Supports 16-bit PCM and 32-bit float data.
+Encodes the contents of an [AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer) from the WebAudio API as WAVE. Supports 16-bit PCM and 32-bit float data. (Forked) -> also support resampling (naive approach) for mono audio. 
 
 The code for this has been adapted from the export feature of [Recorder.js](https://github.com/mattdiamond/Recorderjs).
 
@@ -50,6 +50,8 @@ A more advanced example might be to write the file using Node and Electron or [h
 Encodes the [AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer) instance as WAV, returning a new array buffer. Interleaves multi-channel data, if necessary.
 
 By default, exports with 16-bit PCM (format: 1). You can specify `opt.float32` instead, which will write format 3 with 32-bit float data.
+
+You can also put your sampleRate in the [opt] for executing resampling for mono audio.
 
 ## License
 
