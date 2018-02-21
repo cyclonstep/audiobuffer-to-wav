@@ -11,10 +11,33 @@ function audioBufferToWav (buffer, opt) {
   if (numChannels === 2) {
     result = interleave(buffer.getChannelData(0), buffer.getChannelData(1))
   } else {
-    result = buffer.getChannelData(0)
+    // Resampler only works for mono right now
+    if (sampleRate != buffer.sampleRate) {
+      result = resampling(buffer.getChannelData(0), buffer.sampleRate, sampleRate)
+    else {
+      result = buffer.getChannelData(0)
+    }
   }
 
   return encodeWAV(result, format, sampleRate, numChannels, bitDepth)
+}
+
+// naive resampling approach 
+function resampling(audioBuffer, sourceSampleRate, targetSampleRate) {
+  var increment = sourceSampleRate / targetSampleRate;
+
+  var i = 0,
+      x = 0;
+
+  var resamplingBuf = [];
+
+  for (i = 0; i < audioBuffer.length; i++) {
+    if (Math.round(x) === i) {
+      resamplingBuf.push(audioBuffer[i]);
+      x += increment;
+    }
+  }
+  return resamplingBuf;
 }
 
 function encodeWAV (samples, format, sampleRate, numChannels, bitDepth) {
