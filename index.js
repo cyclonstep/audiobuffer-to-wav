@@ -14,7 +14,7 @@ function audioBufferToWav (buffer, opt) {
     // Resampler only works for mono right now
     if (sampleRate != buffer.sampleRate) {
       result = resampling(buffer.getChannelData(0), buffer.sampleRate, sampleRate)
-    else {
+    } else {
       result = buffer.getChannelData(0)
     }
   }
